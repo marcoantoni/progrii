@@ -20,12 +20,13 @@ class ExemploWhile{
 		
 		// executa o laço de repetição até que não for digitado o numero 0
 		while (altura != 0){
+			System.out.printf("Informe o nome \n");
+			String nome = sc.nextLine();			
 			System.out.printf("Informe a altura \n");
 			
 			altura = sc.nextFloat();
+			
 		}
-		
-		
 		
 	}
 }
