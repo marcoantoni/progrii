@@ -1,38 +1,47 @@
 class Aluno {
-	// atributos da classe
 	String nome;
 	int idade;
-	String cpf;
 	String curso;
+	String cpf;
 	
-	// criando um metodo para mostrar
-	public void mostrarAluno(){
-		System.out.printf("Nome: %s \n", nome);
+	// método para mostrar as informações (atributos) da classe (aluno)
+	public void mostrar(){
+		System.out.printf("Nome: %s \n", nome); // nome é o atributo
 		System.out.printf("Idade: %d \n", idade);
-		System.out.printf("CPF: %s \n", cpf);
 		System.out.printf("Curso: %s \n", curso);
-		System.out.printf("-----------------\n");
-	}
+		System.out.printf("CPF: %s \n", cpf);
 	
-	public static void main (String args[]) {
-		// criando uma instancia da classe aluno
-		
-		// o operador new cria um novo aluno
-		Aluno aluno1 = new Aluno();
-		
-		aluno1.nome = "Luiza";
-		aluno1.idade = 16;
-		aluno1.cpf = "045.134.567-89";
-		aluno1.curso = "Técnico em informática";
-		
-		Aluno aluno2 = new Aluno();
-		aluno2.nome = "Gabriel";
-		aluno2.idade = 16;
-		aluno2.cpf = "987.654.321-10";
-		aluno2.curso = "Técnico em informática";
-		
-		aluno2.mostrarAluno();
-		
-		aluno1.mostrarAluno();
 	}
+
+	// método construtor da classe tem a função de iniciar os atribuos da classe
+	// ele sempre será executado ao criar uma instancia da classe
+	public Aluno(String nome, int idade, String curso, String cpf) {
+		// a referencia this serve para resolver a ambiguidade entre o nome de um atributo e um parametro
+		// this.nome refere-se ao atributo da classe enquanto nome refere-se ao parametro
+		this.nome = nome;
+		this.idade = idade;
+		this.curso = curso;
+		this.cpf = cpf;
+	}
+
+	public static void main(String[] args){
+		// criando o primeiro aluno
+		// o operador new (responsável por criar o objeto) chama o método construtor da classe
+		Aluno al1 = new Aluno ("Miguel", 16, "Técnico em informática", "987.123.456-78");
+		
+		// chamando o método mostrar, que irá mostrar as informações (dados/atributos) do al1
+		al1.mostrar();
+		
+		Aluno al2 = new Aluno ("Giovana", 16, "Técnico em informática", "796.123.432.435-44");
+				
+		al2.mostrar();
+		/* Tarefa de casa: 
+		 * Criar uma classe para representar horários no 
+		 contexto computacional. Para testar o código, crie duas
+		 instências da classe para representar o horário que 
+		 você acorda e o horário que voce chega em casa, chamando
+		 o método para printar as informações.
+		*/
+	}
+		
 }
