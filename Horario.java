@@ -21,7 +21,7 @@ class Horario {
 		}
 		
 		// validações similares as da hora
-		if (minuto >=0 && minuto < 60){
+		if (min >=0 && min < 60){
 			this.minuto = min; // embora aqui não tenha a ambiguidade, está sendo colocado o this para ficar padronizado
 		} else {
 			System.out.printf("Verifique os minutos informados\n");
