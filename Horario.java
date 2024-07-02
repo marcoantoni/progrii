@@ -31,12 +31,19 @@ class Horario {
 	
 	// método que escreve o horario no formado 23:54
 	public void escreverHorario(){
-		System.out.printf("%d:%d \n", hora, minuto);
+		if (minuto == 30) {
+			System.out.printf("%d horas e meia", hora);
+		} else if (minuto == 0) {
+			System.out.printf("%d horas", hora);
+		} else {
+			System.out.printf("%d horas e %d minutos", hora, minuto);
+		}
+		
 	}
 	
 	public static void main (String args[]) {
 		// cria um Horario, no qual define a hora como 8 e minutos como 15
-		Horario acordar = new Horario(8, 15); 
+		Horario acordar = new Horario(10, 29); 
 		
 		System.out.printf("Eu me acordo às ");
 		acordar.escreverHorario();	// chama o método responsável por printar o horario na tela.
