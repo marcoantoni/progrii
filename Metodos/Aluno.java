@@ -71,5 +71,16 @@ class Aluno {
 			System.out.printf("O aluno está em exame com a media %.2f\n", media);
 		}
 		
+		Aluno al2 = new Aluno("Gabriel");
+		al2.lerTeclado();
+		al2.imprimirBoletim();
+		
+		if (al2.calcularMedia() >= 7) {
+			System.out.printf("O aluno está aprovado com a média %.2f\n", media);
+		} else if (media <= 1.7f) {
+			System.out.printf("O aluno está reprovado com a média %.2f\n", media);
+		} else {
+			System.out.printf("O aluno está em exame com a media %.2f\n", media);
+		} 
 	}
 }

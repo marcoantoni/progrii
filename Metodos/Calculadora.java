@@ -10,6 +10,10 @@ class Calculadora {
 		return resultado;
 	}
 	
+	public float subtrair(float n1, float n2) {
+		return n1 - n2;
+	}
+	
 	public static void main (String args[]) {
 		Calculadora calc = new Calculadora(); // calculadora simples, pois só permite a operação com dois numeros por vez
 		
@@ -20,6 +24,13 @@ class Calculadora {
 		float resultado = calc.somar(19, 11);	
 		
 		System.out.printf("A soma é %f", resultado );
+		
+		System.out.printf("A subtração de %f - %f é %f \n", 80f, 37f, calc.subtrair(80, 37) );
+	
+		int resultado2 = 10 / 0;
+		
+		System.out.printf("A subtração de %d", resultado2);
+	
 	}
 
 }
