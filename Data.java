@@ -18,6 +18,10 @@ class Data {
 		System.out.printf("Método construtor: dia = %d, mes=%d, ano=%d", dia, mes, ano);
 	}
 	
+	public int getAno() {
+		return ano;
+	}
+	
 	public void setAno(int ano){
 		if (ano >= 1900){
 			this.ano = ano;
@@ -26,6 +30,11 @@ class Data {
 			System.out.println("Ano inválido");
 		}
 	}
+	
+	public int getDia(){
+		return dia;
+	}
+	// criar os métodos getters para os atributos mes/ano
 	
 	public void setDia(int dia){
 		// print para debuguar o código
@@ -43,6 +52,10 @@ class Data {
 		}
 		
 		// desafio: validar os anos bissextos
+	}
+	
+	public int getMes() {
+		return mes;
 	}
 	
 	public void setMes(int mes) {
