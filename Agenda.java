@@ -34,6 +34,61 @@ public class Agenda {
 			//}
 		}
 	}
+	
+	public void buscar(String busca){
+		
+		// variavel de status para poder mostrar uma mensagem para o usuário
+		boolean encontrado = false;
+		
+		// percorre o array de contatos indo somente até o ponto em que há contatos armazenados (< prox)
+		for (int i=0; i < prox; i++){
+			// testa se o nome do contato corresponde ao parametro recebido (busca)
+			if (contatos[i].getNome().equalsIgnoreCase(busca) ){
+				System.out.printf("Encontrei o contato de %s \n", busca);
+				contatos[i].mostrarContato();	// mostra o contato
+				encontrado = true;	// altera o status da variavel
+				break;	// interrompe a busca, pois já encontrou o contato
+			}
+		}
+		
+		// mensagem para informar se o contato foi encontrado
+		if (encontrado == false) {
+			System.out.printf("O contato de %s não foi encontrado\n", busca);
+		}
+	}
+	
+	public void deletar (String deletado) {
+		
+		// variavel de status para poder mostrar uma mensagem para o usuário
+		boolean excluido = false;
+
+		// percorre o array de contatos indo somente até o ponto em que há contatos armazenados (< prox)
+		for (int i=0; i<prox; i++){
+			// testa se o nome do contato corresponde ao parametro recebido (busca)
+			if (contatos[i].getNome().equalsIgnoreCase(deletado) ){
+				contatos[i] = null;	// remove a referencia do contato armazenado (exclui a ligação)
+				prox--; // mesma coisa que prox = prox - 1;	libera uma posição no array
+				excluido = true;	// altera o status da variavel
+			}
+		}
+		
+		// mostra a mensagem
+		if (excluido == true) {
+			System.out.printf("Contato excluído com sucesso!\n");
+		} else {
+			System.out.printf("Contato não excluído pois não foi encontrado!\n");
+		}
+		
+		// percorre o laço novamente para trocar as posições do array. Exemplo:
+		// Se houver 5 contatos e o primeiro for excluído, a posição zero não pode ficar com null
+		for (int i=0; i<prox; i++){
+			// testa se o contato for null
+			if (contatos[i] == null) {
+				contatos[i] = contatos[i+1];	// contato atual é igual ao próximo
+				contatos[i+1] = null;	// exclui a ligação do próximo contato
+			}
+		}
+	}
 
 	public static void main (String args[]){
 
@@ -52,6 +107,14 @@ public class Agenda {
 		agendaDiego.adicionar(ct2);
 		
 		// mostrar os contatos salvos na "agendaDiego"
+		agendaDiego.mostrarAgenda();
+		
+		// testando a operacao de buscar contato
+		agendaDiego.buscar("Luiza");
+		
+		// testando a operacao de exclusao
+		agendaDiego.deletar("Carlos");
+		
 		agendaDiego.mostrarAgenda();
 	}
 }

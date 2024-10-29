@@ -20,6 +20,10 @@ public class Contato{
 		System.out.printf("Método construtor 2: recebe 2 parametros \n");
 	}
 	
+	public String getNome() {
+		return nome;
+	}
+	
 	public void setNome(String nome){
 		
 		// validação da quantidade de caracteres na string
